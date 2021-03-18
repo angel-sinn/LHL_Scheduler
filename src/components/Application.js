@@ -6,18 +6,28 @@ import "components/Application.scss";
 import Appointment from "components/Appointment";
 import DayList from "./DayList";
 
-import { getAppointmentsForDay } from "../helpers/selectors";
+import { getAppointmentsForDay, getInterview } from "../helpers/selectors";
 
 export default function Application(props) {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
     appointments: {},
+    interviewers: {},
   });
 
-  const dailyAppointments = getAppointmentsForDay(state, state.day);
-  const appointments = dailyAppointments.map((appointment) => {
-    return <Appointment key={appointment.id} {...appointment} />;
+  const appointments = getAppointmentsForDay(state, state.day);
+
+  const schedule = appointments.map((appointment) => {
+    const interview = getInterview(state, appointment.interview);
+    return (
+      <Appointment
+        key={appointment.id}
+        id={appointment.id}
+        time={appointment.time}
+        interview={interview}
+      />
+    );
   });
 
   const setDay = (day) => setState({ ...state, day });
@@ -58,7 +68,7 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        {appointments}
+        {schedule}
         <Appointment key="last" time="5pm" />
       </section>
     </main>
