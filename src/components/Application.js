@@ -34,15 +34,12 @@ export default function Application(props) {
     };
 
     // make request to API to update appointment with new interview info with axios
-    return axios
-      .put(`/api/appointments/${id}`, appointment)
-      .then((res) => {
-        setState({
-          ...state,
-          appointments,
-        });
-      })
-      .catch((err) => console.log(err));
+    return axios.put(`/api/appointments/${id}`, appointment).then((res) => {
+      setState({
+        ...state,
+        appointments,
+      });
+    });
   };
 
   const cancelInterview = (id) => {
@@ -59,15 +56,12 @@ export default function Application(props) {
     };
 
     // make request to API to update/delete appointment with new interview info with axios
-    return axios
-      .delete(`/api/appointments/${id}`)
-      .then((res) => {
-        setState({
-          ...state,
-          appointments,
-        });
-      })
-      .catch((err) => console.log(err));
+    return axios.delete(`/api/appointments/${id}`).then((res) => {
+      setState({
+        ...state,
+        appointments,
+      });
+    });
   };
 
   const appointments = getAppointmentsForDay(state, state.day);
