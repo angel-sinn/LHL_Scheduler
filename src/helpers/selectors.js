@@ -32,8 +32,6 @@ export function getInterviewersForDay(state, day) {
 
   const filteredDay = state.days.filter((dayObj) => dayObj.name === day);
 
-  console.log("filteredDay", filteredDay);
-
   if (!filteredDay || filteredDay.length < 1) {
     return interviewersArr;
   }
@@ -41,7 +39,6 @@ export function getInterviewersForDay(state, day) {
   for (const interviewerId of filteredDay[0].interviewers) {
     interviewersArr.push(state.interviewers[interviewerId]);
   }
-  console.log("interviewersArr", interviewersArr);
 
   return interviewersArr;
 }
