@@ -40,11 +40,14 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
+    const days = updateSpots(state.day, state.days, appointments);
+
     // make request to API to update appointment with new interview info with axios
     return axios.put(`/api/appointments/${id}`, appointment).then((res) => {
       setState({
         ...state,
         appointments,
+        days,
       });
     });
   };
@@ -62,13 +65,43 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
+    const days = updateSpots(state.day, state.days, appointments);
+
     // make request to API to update/delete appointment with new interview info with axios
     return axios.delete(`/api/appointments/${id}`).then((res) => {
       setState({
         ...state,
         appointments,
+        days,
       });
     });
+  };
+
+  //check for available slots in a day
+  const availableSlots = (day, appointments) => {
+    let count = 0;
+    for (const id of day.appointments) {
+      const appointment = appointments[id];
+      if (!appointment.interview) {
+        count++;
+      }
+    }
+    return count;
+  };
+
+  // function to check for available slots and updates info
+  const updateSpots = function (dayName, days, appointments) {
+    const day = days.find((item) => item.name === dayName);
+
+    const slots = availableSlots(day, appointments);
+
+    const newDaysArr = days.map((item) => {
+      if (item.name === dayName) {
+        return { ...item, spots: slots };
+      }
+      return item;
+    });
+    return newDaysArr;
   };
 
   return { state, setDay, bookInterview, cancelInterview };
