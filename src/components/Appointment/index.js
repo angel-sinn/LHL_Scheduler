@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Header from "./Header";
 import Show from "./Show";
@@ -26,6 +26,16 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
+
+  // setting up side effect to transition to correct mode when value of interview changes (booked or cancelled interview)
+  useEffect(() => {
+    if (props.interview && mode === EMPTY) {
+      transition(SHOW);
+    }
+    if (props.interview === null && mode === SHOW) {
+      transition(EMPTY);
+    }
+  }, [props.interview, transition, mode]);
 
   const save = (name, interviewer) => {
     const interview = {
