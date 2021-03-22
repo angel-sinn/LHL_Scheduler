@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import InterviewerList from "../InterviewerList";
 import Button from "../Button";
 
@@ -23,6 +24,7 @@ export default function Form(props) {
       return;
     }
 
+    setError("");
     props.onSave(name, interviewer);
   };
 
