@@ -50,5 +50,5 @@ View live application:<a href="https://scheduler-lhl-as.netlify.app/" target="_b
 
 ## Setup & Getting Started
 
-Install dependencies with `npm install`
+Install dependencies with `npm install`  
 Run `npm start` on local server
