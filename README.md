@@ -2,7 +2,7 @@
 
 Interview scheduler is a single page React application that allows users to book, edit and cancel interviews. All connected users are able to see updates in real time as this application uses a WebSocket server.
 
-View live application: <a href="https://scheduler-lhl-as.netlify.app/" target="_blank">Interview Scheduler</a>
+View live application:<a href="https://scheduler-lhl-as.netlify.app/" target="_blank">Interview Scheduler</a>
 
 ## Project Stack
 
