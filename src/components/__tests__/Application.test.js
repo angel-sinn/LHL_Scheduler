@@ -19,7 +19,6 @@ import Application from "components/Application";
 
 afterEach(cleanup);
 
-// Using async/await for practice instead of promises
 describe("Application", () => {
   it("changes the schedule when a new day is selected", async () => {
     const { getByText } = render(<Application />);
