@@ -6,8 +6,8 @@ View live application:<a href="https://scheduler-lhl-as.netlify.app/" target="_b
 
 ## Project Stack
 
-**Front-End**: HTML, JavaScript, React, JSX, SASS, Axios  
-**Back-End**: Node.js, Express, PostgreSQL  
+**Front-End**: HTML, JavaScript, React, JSX, SASS, Axios, WebSocket
+**Back-End**: Node.js, Express, PostgreSQL, WebSocket  
 **Testing**: Storybook, JEST, Cypress  
 **Deployment**: Heroku, Netlify
 
@@ -16,9 +16,10 @@ View live application:<a href="https://scheduler-lhl-as.netlify.app/" target="_b
 - Users are able to book interviews while specifying an interviewer
 - Users are able to navigate through the days to check for available slots
 - Users can easily edit their interviews
-- Users can cancel their interviews with a confirmation message showing prior to delete
+- Users can cancel their interviews with a confirmation prompt prior to deleting
 - Users can easily see how many slots are remaining per day
 - Multiple users can book or cancel interviews simultaneously with live updates
+- Application makes API requests to load and persist data. No data is lost after a browser refresh.
 
 ## Final Product
 
