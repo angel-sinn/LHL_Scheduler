@@ -2,7 +2,7 @@
 
 Scheduler is a single page application (SPA) built with React that allows users to book, edit and cancel interviews. All connected users are able to see updates in real time as this application uses a WebSocket server.
 
-View live application: <a href="https://scheduler-lhl-as.netlify.app/" target="_blank">Scheduler</a>
+View live application: <a href="https://scheduler-lhl-as.netlify.app/" target="_blank">Scheduler</a>  
 (Note: may be a slight delay for the app to load)
 
 ## Project Stack
